@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{%block content%}
+<div class="row">
+{% if items %}
+    {%for item in items%}
+    <div class="col-sm-4">
+        <div class="card  mb-3">
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-text">
+                        {{item.content[:60]}}
+                    </p>
+                    <a class="btn btn-info" href="{{url_for('single_item',id = item.id)}}">Read more</a>
+                </div>
+                
+              </div>
+        </div>
+    {%endfor%}
+{% endif %}
+</div>
+{%endblock%}

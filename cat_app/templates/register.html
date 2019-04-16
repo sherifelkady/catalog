@@ -1,0 +1,40 @@
+{%extends "base.html"%}
+{%block content%}
+<form id="form" method="POST">
+    {{ form.hidden_tag()}}
+    <div class="form-group">
+        {{form.username.label()}}
+        {%if form.username.errors%}
+            {%for error in form.username.errors%}
+                {{form.username(class="form-control is-invalid")}}
+                <div class="invalid-feedback">{{error}}</div>
+            {% endfor %}
+        {%else%}
+        {{form.username(class="form-control")}}
+        {%endif%}
+    </div>
+    <div class="form-group">
+        {{form.email.label()}}
+        {%if form.email.errors%}
+            {{form.email(class="form-control is-invalid")}}
+            {% for error in form.email.errors %}
+                <div class="invalid-feedback">{{error}}</div>
+            {% endfor %}
+        {% else %}
+        {{form.email(class="form-control")}}
+        {%endif%}
+    </div>
+    <div class="form-group">
+        {{form.password.label()}}
+        {{form.password(class="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.re_password.label()}}
+        {{form.re_password(class="form-control")}}
+    </div>
+    <div class="form-group">
+        {{form.submit(class="btn btn-info")}}
+        
+    </div>
+</form>
+{% endblock %}
